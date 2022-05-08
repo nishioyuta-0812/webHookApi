@@ -16,13 +16,14 @@ router.get('/v1/systems/ping', (req, res) => {
 
 router.post('/v1/tweet', async (req, res) => {
   const entityId = req.body['entityId'];
+  console.log(entityId);
   const twitterClient = new twitterApi.TwitterApi({
     appKey: `${process.env.APP_KEY}`,
     appSecret: `${process.env.APP_SECRET}`,
     accessToken: `${process.env.ACCESS_TOKEN}`,
     accessSecret: `${process.env.ACCESS_SECRET}`
   });
-  const result =  await twitterClient.v2.tweet(`テスト\nブログを更新しました！\n https://nishiyu.net/#/articles/${entityId}`);
+  const result =  await twitterClient.v2.tweet(`ブログを更新しました！\n https://nishiyu.net/#/articles/${entityId}`);
   console.log(result);
   res.send(result.data.id);
 });
