@@ -23,7 +23,7 @@ router.post('/v1/tweet', async (req, res) => {
     accessToken: `${process.env.ACCESS_TOKEN}`,
     accessSecret: `${process.env.ACCESS_SECRET}`
   });
-  const result =  await twitterClient.v2.tweet(`ブログを更新しました！\n https://nishiyu.net/#/articles/${entityId}`);
+  const result =  await twitterClient.v2.tweet(`ブログを更新しました！\n https://nishiyu.net/articles/${entityId}`);
   console.log(result);
   res.send(result.data.id);
 });
